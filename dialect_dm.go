@@ -13,7 +13,7 @@ import (
 	"unicode/utf8"
 
 	_ "gitee.com/chunanyong/dm" // 引入dm数据库驱动包
-	"github.com/jinzhu/gorm" // 引入gorm v1�?
+	"github.com/jinzhu/gorm" // 引入gorm v1
 )
 
 var keyNameRegex = regexp.MustCompile("[^a-zA-Z0-9]+")
@@ -225,7 +225,7 @@ WHERE TABS.ID = COLS.ID AND SCHS.ID = TABS.SCHID;`
 	return count > 0
 }
 
-// gorm上层调用传入参数tableName，columnName一定带双引�?func (s dm) ModifyColumn(tableName string, columnName string, typ string) error {
+// gorm上层调用传入参数tableName，columnName一定带双引号func (s dm) ModifyColumn(tableName string, columnName string, typ string) error {
 	_, err := s.db.Exec(fmt.Sprintf(`ALTER TABLE %s MODIFY %v %v`, tableName, columnName, typ))
 	return err
 }
